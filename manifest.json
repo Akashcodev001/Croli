@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Croli",
+  "version": "1.0.4",
+  "description": "Jump to an older date in an Instagram Web chat without scrolling by hand. Runs locally; reads no message text.",
+  "minimum_chrome_version": "110",
+  "action": { "default_title": "Croli", "default_popup": "popup.html", "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png" } },
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["https://www.instagram.com/*", "https://instagram.com/*"],
+  "content_scripts": [
+    { "matches": ["https://www.instagram.com/*", "https://instagram.com/*"], "js": ["content.js"], "run_at": "document_idle" }
+  ],
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'self'" }
+}
